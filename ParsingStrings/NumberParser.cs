@@ -51,7 +51,7 @@ namespace ParsingStrings
         public static bool TryParseUnsignedInteger(string str, out uint result)
         {
             // TODO #1. Implement the method using "uint.TryParse" method.
-            throw new NotImplementedException();
+            return uint.TryParse(str, out result);
         }
 
         /// <summary>
@@ -62,7 +62,18 @@ namespace ParsingStrings
         public static uint ParseUnsignedInteger(string? str)
         {
             // TODO #2. Implement the method using "uint.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return uint.Parse(str);
+            }
+            catch (FormatException)
+            {
+                return default;
+            }
+            catch (OverflowException)
+            {
+                return uint.MaxValue;
+            }
         }
 
         /// <summary>
@@ -74,7 +85,7 @@ namespace ParsingStrings
         public static bool TryParseByte(string str, out byte result)
         {
             // TODO #3. Implement the method using "byte.TryParse" method.
-            throw new NotImplementedException();
+            return byte.TryParse(str, out result);
         }
 
         /// <summary>
@@ -85,7 +96,23 @@ namespace ParsingStrings
         public static byte ParseByte(string? str)
         {
             // TODO #4. Implement the method using "byte.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            if (str is null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            try
+            {
+                return byte.Parse(str);
+            }
+            catch (FormatException)
+            {
+                return byte.MaxValue;
+            }
+            catch (OverflowException)
+            {
+                return byte.MinValue;
+            }
         }
 
         /// <summary>
@@ -97,7 +124,7 @@ namespace ParsingStrings
         public static bool TrySignedByte(string str, out sbyte result)
         {
             // TODO #5. Implement the method using "sbyte.TryParse" method.
-            throw new NotImplementedException();
+            return sbyte.TryParse(str, out result);
         }
 
         /// <summary>
@@ -108,7 +135,18 @@ namespace ParsingStrings
         public static sbyte ParseSignedByte(string? str)
         {
             // TODO #6. Implement the method using "sbyte.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return sbyte.Parse(str);
+            }
+            catch (FormatException)
+            {
+                return sbyte.MaxValue;
+            }
+            catch (OverflowException)
+            {
+                throw new OverflowException();
+            }
         }
 
         /// <summary>
@@ -120,7 +158,7 @@ namespace ParsingStrings
         public static bool TryParseShort(string str, out short result)
         {
             // TODO #7. Implement the method using "short.TryParse" method.
-            throw new NotImplementedException();
+            return short.TryParse(str, out result);
         }
 
         /// <summary>
@@ -131,7 +169,18 @@ namespace ParsingStrings
         public static short ParseShort(string? str)
         {
             // TODO #8. Implement the method using "short.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return short.Parse(str);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException();
+            }
+            catch (OverflowException)
+            {
+                return short.MaxValue;
+            }
         }
 
         /// <summary>
@@ -143,7 +192,7 @@ namespace ParsingStrings
         public static bool TryParseUnsignedShort(string str, out ushort result)
         {
             // TODO #9. Implement the method using "ushort.TryParse" method.
-            throw new NotImplementedException();
+            return ushort.TryParse(str, out result);
         }
 
         /// <summary>
@@ -154,7 +203,18 @@ namespace ParsingStrings
         public static ushort ParseUnsignedShort(string? str)
         {
             // TODO #10. Implement the method using "ushort.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return ushort.Parse(str);
+            }
+            catch (FormatException)
+            {
+                return default;
+            }
+            catch (OverflowException)
+            {
+                return ushort.MaxValue;
+            }
         }
 
         /// <summary>
@@ -166,7 +226,7 @@ namespace ParsingStrings
         public static bool TryParseLong(string str, out long result)
         {
             // TODO #11. Implement the method using "long.TryParse" method.
-            throw new NotImplementedException();
+            return long.TryParse(str, out result);
         }
 
         /// <summary>
@@ -177,7 +237,18 @@ namespace ParsingStrings
         public static long ParseLong(string? str)
         {
             // TODO #12. Implement the method using "long.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return long.Parse(str);
+            }
+            catch (FormatException)
+            {
+                return long.MinValue;
+            }
+            catch (OverflowException)
+            {
+                return -1;
+            }
         }
 
         /// <summary>
@@ -189,7 +260,7 @@ namespace ParsingStrings
         public static bool TryParseUnsignedLong(string str, out ulong result)
         {
             // TODO #13. Implement the method using "ulong.TryParse" method.
-            throw new NotImplementedException();
+            return ulong.TryParse(str, out result);
         }
 
         /// <summary>
@@ -200,7 +271,18 @@ namespace ParsingStrings
         public static ulong ParseUnsignedLong(string? str)
         {
             // TODO #14. Implement the method using "ulong.Parse" method, and add exception handling if necessary.
-            throw new NotImplementedException();
+            try
+            {
+                return ulong.Parse(str);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException();
+            }
+            catch (OverflowException)
+            {
+                throw new OverflowException();
+            }
         }
     }
 }

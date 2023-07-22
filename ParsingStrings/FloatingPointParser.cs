@@ -13,7 +13,7 @@ namespace ParsingStrings
         public static bool TryParseFloat(string? str, out float result)
         {
             // TODO #19. Implement the method using "float.TryParse" method.
-            throw new NotImplementedException();
+            return float.TryParse(str, out result);
         }
 
         /// <summary>
@@ -24,7 +24,18 @@ namespace ParsingStrings
         public static float ParseFloat(string? str)
         {
             // TODO #20. Implement the method using "float.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return float.Parse(str);
+            }
+            catch (FormatException)
+            {
+                return float.NaN;
+            }
+            catch (OverflowException)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
         }
 
         /// <summary>
@@ -36,7 +47,7 @@ namespace ParsingStrings
         public static bool TryParseDouble(string? str, out double result)
         {
             // TODO #21. Implement the method using "double.TryParse" method.
-            throw new NotImplementedException();
+            return double.TryParse(str, out result);
         }
 
         /// <summary>
@@ -47,7 +58,18 @@ namespace ParsingStrings
         public static double ParseDouble(string? str)
         {
             // TODO #22. Implement the method using "double.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return double.Parse(str);
+            }
+            catch (FormatException)
+            {
+                return double.Epsilon;
+            }
+            catch (OverflowException)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
         }
 
         /// <summary>
@@ -59,7 +81,7 @@ namespace ParsingStrings
         public static bool TryParseDecimal(string? str, out decimal result)
         {
             // TODO #23. Implement the method using "decimal.TryParse" method.
-            throw new NotImplementedException();
+            return decimal.TryParse(str, out result);
         }
 
         /// <summary>
@@ -70,7 +92,22 @@ namespace ParsingStrings
         public static decimal ParseDecimal(string? str)
         {
             // TODO #24. Implement the method using "decimal.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return decimal.Parse(str);
+            }
+            catch (ArgumentNullException)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+            catch (FormatException)
+            {
+                return -1.1m;
+            }
+            catch (OverflowException)
+            {
+                return -2.2m;
+            }
         }
     }
 }

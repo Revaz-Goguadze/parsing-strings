@@ -13,7 +13,7 @@ namespace ParsingStrings
         public static bool TryParseChar(string? str, out char result)
         {
             // TODO #15. Implement the method using "char.TryParse" method.
-            throw new NotImplementedException();
+            return char.TryParse(str, out result);
         }
 
         /// <summary>
@@ -24,7 +24,18 @@ namespace ParsingStrings
         public static char ParseChar(string? str)
         {
             // TODO #16. Implement the method using "char.Parse" method, and add exception handling.
-            throw new NotImplementedException();
+            try
+            {
+                return char.Parse(str);
+            }
+            catch (FormatException)
+            {
+                return ' ';
+            }
+            catch (OverflowException)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
         }
     }
 }
